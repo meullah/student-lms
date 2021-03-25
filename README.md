@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Demo of the project
 
- ![alt-text]('https://github.com/meullah/student-lms/blob/main/demo.gif')
+ ![alt-text](https://github.com/meullah/student-lms/blob/main/demo.gif)
 
 ## Development server
 
