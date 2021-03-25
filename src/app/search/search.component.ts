@@ -9,6 +9,9 @@ import { NgxCSVParserError } from 'ngx-csv-parser';
 })
 export class SearchComponent implements OnInit {
   ngOnInit(): void {}
+
+  // setting some properties for reading CSV file and storing data
+
   csvRecords: any[] = [];
   orignalRecords: any[] = [];
   header = true;
@@ -23,6 +26,7 @@ export class SearchComponent implements OnInit {
   @ViewChild('fileImportInput', { static: false }) fileImportInput: any;
 
   // Your applications input change listener for the CSV File
+  // it also parses csv data and store then in the form of list of objects
   fileChangeListener($event: any): void {
     // Select the files from the event
     const files = $event.srcElement.files;
@@ -44,12 +48,15 @@ export class SearchComponent implements OnInit {
       );
   }
 
+  //get the selected option from the HTML selector
   getSelectedOption(value: any) {
     // console.log(value);
     this.selectedOption = value;
     this.searchBoxChanged(this.searchBoxValue);
   }
 
+  // gets the value of the search box | and used filter method of Object
+  // to filterout the contents
   searchBoxChanged(value: any) {
     // console.log('search Box Chnged : value : ', value);
     this.searchBoxValue = value;
@@ -70,8 +77,9 @@ export class SearchComponent implements OnInit {
     // console.log(this.csvRecords);
   }
 
-  viewDetails(index: any) {
-    this.detailsCardData = this.csvRecords[index];
+  // used to display data on the cards
+  viewDetails(item: any) {
+    this.detailsCardData = item;
     console.log('details card data', this.detailsCardData);
   }
 }

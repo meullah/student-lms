@@ -6,9 +6,11 @@ import { DataService } from '../data.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  // creating an instance of Serice using Dependency Injection syntax
   constructor(private userDataService: DataService) {}
 
   ngOnInit(): void {}
+  // gets data from from onSubmit and sends data to service
   getData(myform: any) {
     this.userDataService.getData(myform.value).subscribe((res) => {
       console.log('result from post request', res);

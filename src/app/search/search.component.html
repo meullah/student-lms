@@ -71,20 +71,17 @@
         <tbody>
           <tr
             *ngFor="
-              let items of csvRecords
+              let item of csvRecords
                 | slice: (page - 1) * pageSize:page * pageSize;
               let indexOfelement = index
             "
           >
             <td class="text-primary">{{ indexOfelement + 1 }}</td>
-            <td *ngFor="let key of items | keys">
+            <td *ngFor="let key of item | keys">
               {{ key.value }}
             </td>
             <td>
-              <button
-                class="btn btn-primary"
-                (click)="viewDetails(indexOfelement)"
-              >
+              <button class="btn btn-primary" (click)="viewDetails(item)">
                 View Details
               </button>
             </td>
