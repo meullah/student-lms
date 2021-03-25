@@ -1,0 +1,15 @@
+<div style="border: 2px solid red">
+  <ul ngbNav #nav="ngbNav" class="nav-pills">
+    <li [ngbNavItem]="1">
+      <a routerLink="/home" ngbNavLink>Home</a>
+    </li>
+    <li [ngbNavItem]="2">
+      <a routerLink="/register" ngbNavLink>Register</a>
+    </li>
+
+    <li [ngbNavItem]="3">
+      <a routerLink="/search" ngbNavLink>Search</a>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

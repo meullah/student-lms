@@ -1,0 +1,144 @@
+<!-- <angular2csv
+  [data]="data"
+  filename="test.csv"
+  [options]="options"
+></angular2csv> -->
+
+<div id="formContainer">
+  <form #myForm="ngForm" (ngSubmit)="getData(myForm)">
+    <div class="form-group row">
+      <label for="name" class="col-sm-2 col-form-label">Name: </label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          required
+          class="form-control is-invalid"
+          placeholder="type full name here ..."
+          id="name"
+          name="name"
+          #name="ngModel"
+          [class.is-invalid]="name.invalid && name.touched"
+        />
+        <small class="text-danger" [class.d-none]="name.valid || name.untouched"
+          >name is required.</small
+        >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="phone" class="col-sm-2 col-form-label">Phone: </label>
+      <div class="col-sm-10">
+        <input
+          type="tel"
+          ngModel
+          id="phone"
+          required
+          #phone="ngModel"
+          [class.is-invalid]="phone.invalid && phone.touched"
+          name="phoneNo"
+          placeholder="000-0123456789"
+          pattern="[0-9]{3}-[0-9]{10}"
+          class="form-control"
+        />
+        <small
+          class="text-danger"
+          [class.d-none]="phone.valid || phone.untouched"
+          >phone number is required in correct format.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="email" class="col-sm-2 col-form-label">Email: </label>
+      <div class="col-sm-10">
+        <input
+          type="email"
+          ngModel
+          id="email"
+          required
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          name="email"
+          placeholder="example@abc.com"
+          class="form-control"
+          #email="ngModel"
+          [class.is-invalid]="email.invalid && email.touched"
+        />
+        <small
+          class="text-danger"
+          [class.d-none]="email.valid || email.untouched"
+          >email is required in correct format.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="course" class="col-sm-2 col-form-label">Course Title: </label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          id="course"
+          name="course"
+          placeholder="type course title here ... "
+          class="form-control"
+          required
+          #course="ngModel"
+          [class.is-invalid]="course.invalid && course.touched"
+        />
+        <small
+          class="text-danger"
+          [class.d-none]="course.valid || course.untouched"
+          >course title is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="university" class="col-sm-2 col-form-label"
+        >University Name:
+      </label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          required
+          id="university"
+          name="university"
+          placeholder="type university name here ... "
+          class="form-control"
+          #university="ngModel"
+          [class.is-invalid]="university.invalid && university.touched"
+        />
+        <small
+          class="text-danger"
+          [class.d-none]="university.valid || university.untouched"
+          >university name is required.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="year" class="col-sm-2 col-form-label">Passing Year: </label>
+      <div class="col-sm-10">
+        <input
+          type="text"
+          ngModel
+          id="year"
+          name="year"
+          placeholder="type passing year here ... "
+          class="form-control"
+        />
+      </div>
+    </div>
+    <div class="form-group-row">
+      <button
+        [disabled]="myForm.form.invalid"
+        type="submit"
+        class="btn btn-primary float-right"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
